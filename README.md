@@ -6,33 +6,8 @@ The project systematically compares **7 different classification models**, tests
 
 ---
 
-## 📁 Project Structure
-
-/notebooks  
-├── LRModel.ipynb  
-├── KNN.ipynb  
-├── NaiveBayes.ipynb  
-├── SVM.ipynb  
-├── DTC.ipynb  
-├── RF.ipynb  
-└── XGB.ipynb  
-
-/results  
-├── knn_results.csv  
-├── logreg_results.csv  
-├── naive_bayes_results.csv  
-├── svm_results.csv  
-├── dtc_results.csv  
-├── rf_results.csv  
-└── xgb_results.csv  
-
-/demo  
-└── demo_app.py  
-
-preprocessing.py  # Core data cleaning and feature engineering module  
-save_model.py     # Trains and saves the final XGBoost model + encoders  
-xgb_model.joblib  # Saved champion model (created by save_model.py)  
-tree_encoders.joblib  # Saved encoders (created by save_model.py)
+## Live Link
+https://renoseharsh-211project-demo-dfek0s.streamlit.app/
 
 ---
 
