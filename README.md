@@ -7,7 +7,7 @@ The project systematically compares **7 different classification models**, tests
 ---
 
 ## Live Link
-https://renoseharsh-211project-demo-dfek0s.streamlit.app/
+https://demopy-djqub5aee62lfeni55psmo.streamlit.app/
 
 ---
 
