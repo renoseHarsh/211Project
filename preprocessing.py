@@ -44,8 +44,7 @@ def extract_time_and_age_features(df: pd.DataFrame) -> pd.DataFrame:
     df["weekday"] = df["trans_date_trans_time"].dt.weekday  # Monday=0
     df["is_weekend"] = df["weekday"].isin([5, 6]).astype(int)
 
-    now_year = pd.Timestamp.now().year
-    df["age"] = now_year - df["dob"].dt.year
+    df["age"] = df["trans_date_trans_time"].dt.year - df["dob"].dt.year
 
     median_age = df["age"].median(skipna=True)
     df["age"] = df["age"].apply(
