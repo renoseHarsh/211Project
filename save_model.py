@@ -11,23 +11,21 @@ from preprocessing import prepare_data
 # ====================================================================
 
 # --- Champion Model Configuration ---
-# These are from your winning experiment:
-# (XGB_Resampled, ratio=0.1, resample_type='up')
 CHAMPION_CONFIG = {
     "model_params": {
-        "n_estimators": 200,
-        "max_depth": 10,
-        "learning_rate": 0.1,
-        "objective": "binary:logistic",
-        "eval_metric": "logloss",
-        "n_jobs": -1,
-        "random_state": 42,
-        "scale_pos_weight": 1,  # We used external resampling, so this is 1
+        "name": "XGB_Resampled",
+        "params": {
+            "n_estimators": 200,
+            "max_depth": 10,
+            "learning_rate": 0.1,
+            "n_jobs": -1,
+            "random_state": 42,
+        },
     },
     "preprocessing_params": {
-        "mode": "tree",  # Must be 'tree' for XGB
-        "ratio": 0.1,  # Your winning ratio
-        "resample_type": "df_up",  # Your winning strategy
+        "mode": "tree",
+        "ratio": 0.1,
+        "resample_type": "df_up",
     },
 }
 
@@ -61,13 +59,12 @@ print(f"  Loaded {len(train_df)} initial records.")
 print("\nRunning preprocessing...")
 
 # Step 2a: Fit encoders
-# We MUST fit the encoders on the *original* data before resampling.
 print("  Fitting encoders on original data...")
 out_init = prepare_data(
     train_df,
     mode=CHAMPION_CONFIG["preprocessing_params"]["mode"],
     training=False,  # We are not training yet
-    fit=True,  # FIT THE ENCODERS
+    fit=True
 )
 encoders = out_init["encoders"]
 print("  Encoders fitted.")
